@@ -21,7 +21,7 @@ export const fetchTodos = createAsyncThunk("todo/fetchTodos", async () => {
 
 export const addTodo = createAsyncThunk("todo/addTodo", async (todo) => {
   try {
-    const res = await axios.post("http://localhost:4000/todos", todo);
+    const res = await axios.post("http://localhost:3000/students", todo);
     const data = await res.data;
     return data;
   } catch (error) {
