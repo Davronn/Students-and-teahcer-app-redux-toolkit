@@ -39,9 +39,12 @@ export const deleteTodo = createAsyncThunk("todo/deleteTodo", async (id) => {
   }
 });
 
-export const updateTodo = createAsyncThunk("todo/updateTodo", async (todo) => {
+export const editTodo = createAsyncThunk("todo/editTodo", async (todo) => {
   try {
-    const res = await axios.put(`http://localhost:4000/todos/${todo.id}`, todo);
+    const res = await axios.put(
+      `http://localhost:3000/students/${todo.id}`,
+      todo
+    );
     const data = await res.data;
     return data;
   } catch (error) {
@@ -104,17 +107,17 @@ const todoSlice = createSlice({
       state.error = action.payload;
     });
     // UPDATE TODO
-    builder.addCase(updateTodo.pending, (state) => {
+    builder.addCase(editTodo.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(updateTodo.fulfilled, (state, action) => {
+    builder.addCase(editTodo.fulfilled, (state, action) => {
       state.loading = false;
       state.todos = state.todos.map((todo) =>
         todo.id === action.payload.id ? action.payload : todo
       );
       state.error = "";
     });
-    builder.addCase(updateTodo.rejected, (state, action) => {
+    builder.addCase(editTodo.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });

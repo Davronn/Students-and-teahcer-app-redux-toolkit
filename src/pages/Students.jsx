@@ -1,25 +1,68 @@
 import React, { useEffect, useState } from "react";
 import Dashboard from "../components/Dashboard";
 import { Table, Input, Button } from "antd";
-import axios from "axios";
+import { Button as Btn, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, fetchTodos } from "../app/students/studentsSlice";
+import {
+  deleteTodo,
+  editTodo,
+  fetchTodos,
+} from "../app/students/studentsSlice";
 import Modall from "../components/Modal";
 
 const { Search } = Input;
 
 const Students = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [formData, setFormData] = useState({
+    id: "",
+    firstName: "",
+    lastName: "",
+    group: "",
+  });
 
   const { loading, todos, error } = useSelector((state) => state.todo);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchTodos());
   }, []);
 
   const handleSearch = (value) => {
     setSearchQuery(value);
+  };
+
+  const handleEdit = (todo) => {
+    // Set the formData state with the selected student's data
+    setFormData({
+      id: todo.id,
+      firstName: todo.firstName,
+      lastName: todo.lastName,
+      group: todo.group,
+    });
+     // Show modal when edit button is clicked
+  };
+
+  const handleInputChange = (e) => {
+    // Update the corresponding field in the formData state
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    dispatch(editTodo(formData)); // Dispatch the editTodo action with the updated data
+    // Close the modal after submission
+    // Reset formData if needed
+    setFormData({
+      id: "",
+      firstName: "",
+      lastName: "",
+      group: "",
+    });
   };
 
   const filteredStudents = todos.filter(
@@ -41,7 +84,7 @@ const Students = () => {
       key: "firstName",
     },
     {
-      title: "LastName",
+      title: "Last Name",
       dataIndex: "lastName",
       key: "lastName",
     },
@@ -52,15 +95,21 @@ const Students = () => {
     },
     {
       title: "Actions",
-      key: "email",
+      key: "actions",
       render: (text, record) => (
-        <Button
-          danger
-          value="small"
-          onClick={() => dispatch(deleteTodo(record.id))}
-        >
-          {"Delete"}
-        </Button>
+        <div>
+          <Btn
+            variant="info"
+            onClick={() => handleEdit(record)}
+            className="mx-1"
+            style={{ color: "white" }}
+          >
+            Edit
+          </Btn>
+          <Btn variant="danger" onClick={() => dispatch(deleteTodo(record.id))}>
+            Delete
+          </Btn>
+        </div>
       ),
     },
   ];
@@ -70,10 +119,9 @@ const Students = () => {
       <Dashboard />
       <div className="container">
         <div className="d-flex justify-content-between p-3">
-          <h2 className="">Students app</h2>
+          <h2>Students app</h2>
           <Button
             type="default"
-            value="large"
             style={{ backgroundColor: "green", color: "white", width: "90px" }}
             onClick={() => setModalShow(true)}
           >
@@ -89,11 +137,35 @@ const Students = () => {
         </div>
         <div>
           {loading && <h1 className="text-center mt-5 ">Loading...</h1>}
-          {error && { error }}
+          {error && <div>{error}</div>}
           <Table size="small" dataSource={filteredStudents} columns={columns} />
-        </div>
-        <div>
-          <Modall show={modalShow} onHide={() => setModalShow(false)} />
+          {/* Editable input fields */}
+          <Modall show={modalShow} onHide={() => setModalShow(false)}></Modall>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleInputChange}
+            />
+            <Form.Select
+              name="group"
+              value={formData.group}
+              onChange={handleInputChange}
+            >
+              <option>Select</option>
+              <option value="N45">N45</option>
+              <option value="N32">N32</option>
+              <option value="N29">N29</option>
+            </Form.Select>
+            <button type="submit">Save</button>
+          </form>
         </div>
       </div>
     </div>
