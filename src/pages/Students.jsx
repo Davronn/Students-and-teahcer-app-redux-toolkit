@@ -55,9 +55,9 @@ const Students = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
-    dispatch(editTodo(formData)); 
-    
+    e.preventDefault();
+    dispatch(editTodo(formData));
+
     setFormData({
       id: "",
       firstName: "",
@@ -143,32 +143,56 @@ const Students = () => {
           <Table size="small" dataSource={filteredStudents} columns={columns} />
           {/* Editable input fields */}
           <Modall show={modalShow} onHide={() => setModalShow(false)}></Modall>
-          <Modal show={editModalShow} onHide={() => setEditModalShow(false)}>
-            <Form onSubmit={handleSubmit}>
-              <Input
-                type="text"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleInputChange}
-              />
-              <Input
-                type="text"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleInputChange}
-              />
-              <Form.Select
-                name="group"
-                value={formData.group}
-                onChange={handleInputChange}
-              >
-                <option>Select</option>
-                <option value="N45">N45</option>
-                <option value="N32">N32</option>
-                <option value="N29">N29</option>
-              </Form.Select>
-              <button type="submit">Save</button>
-            </Form>
+          <Modal
+            size="md"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            show={editModalShow}
+            onHide={() => setEditModalShow(false)}
+          >
+            <Modal.Body className="p-5">
+              <Form onSubmit={handleSubmit}>
+                <Form.Label>Name</Form.Label>
+                <Input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  className="mb-3"
+                />
+                <Form.Label>Last Nmae</Form.Label>
+                <Input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  className="mb-3"
+                />
+                <Form.Label>Group</Form.Label>
+                <Form.Select
+                  name="group"
+                  value={formData.group}
+                  onChange={handleInputChange}
+                  className="mb-3"
+                >
+                  <option>Select</option>
+                  <option value="N45">N45</option>
+                  <option value="N32">N32</option>
+                  <option value="N29">N29</option>
+                </Form.Select>
+
+                <Btn
+                  type="reset"
+                  variant="danger"
+                  onClick={() => setEditModalShow(false)}
+                >
+                  cancle
+                </Btn>
+                <Btn variant="success" className="mx-2" type="submit">
+                  Save
+                </Btn>
+              </Form>
+            </Modal.Body>
           </Modal>
         </div>
       </div>
