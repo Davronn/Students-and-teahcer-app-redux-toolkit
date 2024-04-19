@@ -1,45 +1,39 @@
 {
   "students": [
     {
-      "firstName": "evans",
-      "lastName": "smith",
-      "group": "45",
-      "id": "9"
-    },
-    {
-      "firstName": "sin",
-      "lastName": "doe",
-      "group": "12",
-      "id": "10"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "11"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "12"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "13"
-    },
-    {
       "id": "6ea4",
       "firstName": "Davron",
       "lastName": "doe",
       "group": "N45"
     },
     {
-      "id": "92dc",
-      "firstName": "csldnc",
-      "lastName": "scdkjl/;s",
+      "id": "7c96",
+      "firstName": "Davron",
+      "lastName": "mahama",
+      "group": "N45"
+    },
+    {
+      "id": "96d7",
+      "firstName": "Jhonbek",
+      "lastName": "mc",
+      "group": "N29"
+    },
+    {
+      "id": "9356",
+      "firstName": "Jhonbek",
+      "lastName": "mc",
+      "group": "N29"
+    },
+    {
+      "id": "9092",
+      "firstName": "Jhonbek",
+      "lastName": "mc",
+      "group": "N29"
+    },
+    {
+      "id": "369a",
+      "firstName": "Davron",
+      "lastName": "mahama",
       "group": "N29"
     }
   ]

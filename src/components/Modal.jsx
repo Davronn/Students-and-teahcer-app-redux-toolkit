@@ -12,7 +12,6 @@ function Modall(props) {
     group: "",
   });
   const dispatch = useDispatch();
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -20,7 +19,10 @@ function Modall(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addTodo(formData));
-    props.onHide(); 
+    formData.firstName = "";
+    formData.lastName = "";
+    formData.group = "";
+    props.onHide();
   };
 
   return (
