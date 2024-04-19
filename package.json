@@ -1,5 +1,5 @@
 {
-  "name": "82-lesson",
+  "name": "77-lessson",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,11 +7,21 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "rjs": "json-server --watch ./data/db.json"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.6",
+    "@reduxjs/toolkit": "^2.2.3",
+    "antd": "^5.16.0",
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.3",
+    "json-server": "^1.0.0-alpha.23",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-bootstrap": "^2.10.2",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.2",
+    "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
