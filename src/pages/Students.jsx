@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Dashboard from "../components/Dashboard";
-import { Table, Input } from "antd";
+import { Table, Input, Button } from "antd";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos } from "../app/students/studentsSlice";
+import { deleteTodo, fetchTodos } from "../app/students/studentsSlice";
 
 const { Search } = Input;
 
@@ -49,13 +49,35 @@ const Students = () => {
       dataIndex: "group",
       key: "group",
     },
+    {
+      title: "Actions",
+      key: "email",
+      render: (text, record) => (
+        <Button
+          danger
+          value="small"
+          onClick={() => dispatch(deleteTodo(record.id))}
+        >
+          {"Delete"}
+        </Button>
+      ),
+    },
   ];
 
   return (
     <div className="d-flex">
       <Dashboard />
       <div className="container">
-        <h2 className="my-3">Students app</h2>
+        <div className="d-flex justify-content-between p-3">
+          <h2 className="">Students app</h2>
+          <Button
+            type="default"
+            value="large"
+            style={{ backgroundColor: "green", color: "white", width: "90px" }}
+          >
+            Add
+          </Button>
+        </div>
         <div className="search mb-3" style={{ width: "260px" }}>
           <Search
             placeholder="input search text"
@@ -64,11 +86,7 @@ const Students = () => {
           />
         </div>
         <div>
-          <Table
-            size="middle"
-            dataSource={filteredStudents}
-            columns={columns}
-          />
+          <Table size="small" dataSource={filteredStudents} columns={columns} />
         </div>
       </div>
     </div>

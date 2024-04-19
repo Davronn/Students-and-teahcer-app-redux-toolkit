@@ -31,7 +31,7 @@ export const addTodo = createAsyncThunk("todo/addTodo", async (todo) => {
 
 export const deleteTodo = createAsyncThunk("todo/deleteTodo", async (id) => {
   try {
-    const res = await axios.delete(`http://localhost:4000/todos/${id}`);
+    const res = await axios.delete(`http://localhost:3000/students/${id}`);
     const data = await res.data;
     return data;
   } catch (error) {

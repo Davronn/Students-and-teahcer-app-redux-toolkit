@@ -1,18 +1,6 @@
 {
   "students": [
     {
-      "firstName": "Tom",
-      "lastName": "Smith",
-      "group": "27",
-      "id": "2"
-    },
-    {
-      "firstName": "Brad",
-      "lastName": "Maccalistor ",
-      "group": 27,
-      "id": "3"
-    },
-    {
       "id": "fbc8",
       "firstName": "tom ",
       "lastName": "doe",
@@ -22,127 +10,43 @@
       "firstName": "evans",
       "lastName": "smith",
       "group": "45",
-      "id": "9234"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
+      "id": "9"
     },
     {
       "firstName": "sin",
       "lastName": "doe",
       "group": "12",
-      "id": "3586"
+      "id": "10"
     },
     {
       "firstName": "Tom",
       "lastName": "Andersn",
       "group": "31",
-      "id": "5ebd"
+      "id": "11"
     },
     {
       "firstName": "Tom",
       "lastName": "Andersn",
       "group": "31",
-      "id": "5ebd"
+      "id": "12"
     },
     {
       "firstName": "Tom",
       "lastName": "Andersn",
       "group": "31",
-      "id": "5ebd"
+      "id": "13"
     },
     {
       "firstName": "Tom",
       "lastName": "Andersn",
       "group": "31",
-      "id": "5ebd"
+      "id": "14"
     },
     {
       "firstName": "Tom",
       "lastName": "Andersn",
       "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Andersn",
-      "group": "31",
-      "id": "5ebd"
+      "id": "15"
     }
   ]
 }
