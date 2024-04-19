@@ -4,12 +4,13 @@ import { Table, Input, Button } from "antd";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTodo, fetchTodos } from "../app/students/studentsSlice";
+import Modall from "../components/Modal";
 
 const { Search } = Input;
 
 const Students = () => {
-  const [students, setStudents] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [modalShow, setModalShow] = React.useState(false);
 
   const { loading, todos, error } = useSelector((state) => state.todo);
   const dispatch = useDispatch();
@@ -74,6 +75,7 @@ const Students = () => {
             type="default"
             value="large"
             style={{ backgroundColor: "green", color: "white", width: "90px" }}
+            onClick={() => setModalShow(true)}
           >
             Add
           </Button>
@@ -86,7 +88,12 @@ const Students = () => {
           />
         </div>
         <div>
+          {loading && <h1 className="text-center mt-5 ">Loading...</h1>}
+          {error && { error }}
           <Table size="small" dataSource={filteredStudents} columns={columns} />
+        </div>
+        <div>
+          <Modall show={modalShow} onHide={() => setModalShow(false)} />
         </div>
       </div>
     </div>

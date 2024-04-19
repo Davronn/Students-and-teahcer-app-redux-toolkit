@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
-    const nav = useNavigate()
+  const nav = useNavigate();
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
     if (values.username.length > 2) {
       localStorage.setItem("userName", values.username);
       localStorage.setItem("password", values.password);
-      nav('/students')
+      nav("/students");
     }
   };
+
+  const name = localStorage.getItem("userName");
+  useEffect(() => {
+    if (name) {
+      nav("/students");
+    }
+  }, []);
+
   return (
     <div className="w-25 mt-5 m-auto">
       <Form
@@ -52,7 +60,6 @@ const Login = () => {
             placeholder="Password"
           />
         </Form.Item>
-        
 
         <Form.Item>
           <Button
@@ -62,7 +69,6 @@ const Login = () => {
           >
             Log in
           </Button>
-       
         </Form.Item>
       </Form>
     </div>
